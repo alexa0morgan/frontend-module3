@@ -52,6 +52,19 @@
 
     <script>
         let textSize = 16;
+
+        const liList = document.querySelectorAll('li');
+        const text = document.querySelector('.text');
+
+        function editCSS(e) {
+            e.currentTarget.classList.toggle('complete');
+            ++textSize;
+            text.style.fontSize = `${textSize}px`;
+        }
+
+        for (const li of liList) {
+            li.addEventListener('click', editCSS);
+        }
     </script>
 </body>
 </html>
