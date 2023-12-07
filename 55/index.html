@@ -96,7 +96,28 @@
     </div>
 
     <script>
+        function f(e) {
+            console.log(e.currentTarget.value);
+        }
 
+        document.querySelector('.js-input').addEventListener('input', f);
+        document.querySelector('.js-change').addEventListener('change', f);
+        document.querySelector('.js-blur').addEventListener('blur', f);
+        document.querySelector('.js-focus').addEventListener('focus', f);
+
+
+        function  f2(e) {
+            console.log(e.currentTarget.checked, e.currentTarget.value);
+        }
+
+        document.querySelector('.js-checkbox-1').addEventListener('change', f2);
+        document.querySelector('.js-checkbox-2').addEventListener('change', f2);
+        document.querySelector('.js-radio-1').addEventListener('change', f2);
+        document.querySelector('.js-radio-2').addEventListener('change', f2);
+
+        document.querySelector('.js-select').addEventListener('change', e => {
+            console.log(e.currentTarget.value, e.currentTarget.options, e.currentTarget.selectedIndex);
+        });
 
     </script>
 </body>
