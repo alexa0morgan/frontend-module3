@@ -103,7 +103,49 @@
                 name: 'Название новости 5',
                 description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id explicabo quis asperiores fugiat quae sint doloremque qui atque vero illum iure nostrum nihil reprehenderit, blanditiis facilis magnam magni. Dicta, quidem.'
             }
-        ]
+        ];
+
+        const wrappers = document.querySelector('.items');
+
+        for (const elem of lists) {
+            const divItem = document.createElement('div');
+            divItem.className = 'item';
+
+            const divItemBG = document.createElement('div');
+            divItemBG.className = 'item__bg';
+
+            const divItemBody = document.createElement('div');
+            divItemBody.className = 'item__body';
+
+            const h2ItemName = document.createElement('h2');
+            h2ItemName.className = 'item__name';
+            h2ItemName.textContent = elem.name;
+
+            const pItemContent = document.createElement('p');
+            pItemContent.className = 'item__content';
+            pItemContent.textContent = elem.description;
+
+            const divItemFooter = document.createElement('div');
+            divItemFooter.className = 'item__footer';
+            divItemFooter.textContent = 'Read more';
+
+            divItemBody.append(h2ItemName, pItemContent, divItemFooter);
+            divItem.append(divItemBG, divItemBody);
+
+            wrappers.append(divItem);
+        }
+
+
+        for (const elem of lists) {
+            wrappers.insertAdjacentHTML("beforeend", `<div class="item">
+                <div class="item__bg"></div>
+                <div class="item__body">
+                    <h2 class="item__name">${elem.name}</h2>
+                    <p class="item__content">${elem.description}</p>
+                    <div class="item__footer">Read More</div>
+                </div>
+            </div>`);
+        }
 
     </script>
 </body>
