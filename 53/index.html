@@ -22,11 +22,30 @@
 </head>
 <body>
     <div class="container">
-        <button class="button" type="button"> <span>А</span> Нажми меня  <span>Я</span> </button>
+        <button class="button" type="button"><span>А</span> Нажми меня <span>Я</span></button>
     </div>
 
     <script>
+    const button = document.querySelector('.button');
 
+    button.addEventListener('click', event => {
+        console.log(event.currentTarget.className);
+        console.log(event.currentTarget.textContent);
+        console.log(event.currentTarget.innerHTML);
+        console.log(event.currentTarget.nodeName);
+
+        console.dir(event.currentTarget.previousElementSibling);
+        console.dir(event.currentTarget.previousSibling);
+        console.dir(event.currentTarget.nextSibling);
+        console.dir(event.currentTarget.nextElementSibling);
+        console.dir(event.currentTarget.firstChild);
+        console.dir(event.currentTarget.firstElementChild);
+        console.dir(event.currentTarget.lastChild);
+        console.dir(event.currentTarget.lastElementChild);
+        console.dir(event.currentTarget.parentElement);
+        console.dir(event.currentTarget.childNodes);
+        console.dir(event.currentTarget.children);
+    });
     </script>
 </body>
 </html>
