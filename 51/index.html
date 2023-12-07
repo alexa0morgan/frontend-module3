@@ -79,15 +79,46 @@
     </div>
 
     <script>
-        const wrappers = document.querySelector('.items')
+        const wrappers = document.querySelector('.items');
 
         document.querySelector('.js-button-1').addEventListener('click', () => {
+            const divItem = document.createElement('div');
+            divItem.className = 'item';
 
-        })
+            const divItemBG = document.createElement('div');
+            divItemBG.className = 'item__bg'
+
+            const divItemBody = document.createElement('div');
+            divItemBody.className = 'item__body';
+
+            const h2ItemName = document.createElement('h2');
+            h2ItemName.className = 'item__name';
+            h2ItemName.textContent = 'Title2';
+
+            const pItemContent = document.createElement('p');
+            pItemContent.className = 'item__content';
+            pItemContent.textContent = 'text';
+
+            const divItemFooter = document.createElement('div');
+            divItemFooter.className = 'item__footer';
+            divItemFooter.textContent = 'Read more';
+
+            divItemBody.append(h2ItemName, pItemContent, divItemFooter);
+            divItem.append(divItemBG, divItemBody);
+
+            wrappers.append(divItem);
+        });
 
         document.querySelector('.js-button-2').addEventListener('click', () => {
-
-        })
+            wrappers.insertAdjacentHTML("beforeend", `<div class="item">
+                <div class="item__bg"></div>
+                <div class="item__body">
+                    <h2 class="item__name">Title 1</h2>
+                    <p class="item__content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore eveniet laudantium ut rerum, aliquid accusantium quis fugit sint commodi dolorum eos! Dolores possimus nihil quibusdam ea debitis sunt eos placeat.</p>
+                    <div class="item__footer">Read More</div>
+                </div>
+            </div>`);
+        });
     </script>
 </body>
 </html>
