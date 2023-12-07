@@ -114,6 +114,23 @@
         </form>
     </div>
     <script>
+    const divElement = document.createElement('div');
+    divElement.className = 'form__cell';
+
+    const labelElement = document.createElement('label');
+    labelElement.className = 'label form__label';
+    labelElement.htmlFor = 'email';
+    labelElement.textContent = 'Email';
+
+    const inputElement = document.createElement('input');
+    inputElement.className = 'input';
+    inputElement.id = 'email';
+    inputElement.value = 'text@gm.com';
+    inputElement.type = 'text';
+    inputElement.placeholder = 'Email';
+
+    divElement.append(labelElement, inputElement);
+    document.querySelector('.form__footer').insertAdjacentElement('beforebegin', divElement);
 
     </script>
 </body>
