@@ -43,7 +43,15 @@
     </div>
 
     <script>
+    const art = document.querySelector("article");
 
+    const p = art.querySelectorAll("p");
+
+    art.firstElementChild.classList.add("highlight");
+
+    for (const elem of p) {
+        elem.querySelector('span')?.classList.add("text-secondary");
+    }
     </script>
 </body>
 </html>
