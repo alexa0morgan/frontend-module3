@@ -42,6 +42,11 @@
     </div>
 
     <script>
+        const ul = document.querySelector('.tasks');
+
+        ul.addEventListener('click', e => {
+            e.target.classList.toggle('complete');
+        });
 
     </script>
 </body>
