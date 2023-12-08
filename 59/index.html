@@ -5,46 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Задание 59</title>
     <style>
-        body{
+        body {
             font-family: sans-serif;
             margin: 0;
         }
+
         *, ::after, ::before {
             box-sizing: border-box;
         }
-        .container{
+
+        .container {
             max-width: 800px;
             width: 100%;
             margin: 0 auto;
             padding: 50px 0;
         }
-        .search{
+
+        .search {
             display: flex;
             gap: 6px;
         }
-        .list__element--active{
+
+        .list__element--active {
             color: red;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="search">
-            <input class="search__input" type="text" name="" id="">
-            <button class="search__btn" type="button">Найти</button>
-            <button class="search__clear" type="button">Очистить</button>
-        </div>
-        <ul class="list"></ul>
+<div class="container">
+    <div class="search">
+        <input class="search__input" type="text" name="" id="">
+        <button class="search__btn" type="button">Найти</button>
+        <button class="search__clear" type="button">Очистить</button>
     </div>
+    <ul class="list"></ul>
+</div>
 
-    <script>
+<script>
 
-        const words = ['День','Том','Гость','Выборы','Солнце','Ход','Речь','Смена','Бизнес','Качество','Республика','Сердце','Администрация','Поезд','Работник','Ресурс','Часть','Изучение','Бок','Понимание','Животное','Утро','Правда','Личность','Звонок','Урок','Командир','Американец','Заседание','Образ'];
+    const words = ['День', 'Том', 'Гость', 'Выборы', 'Солнце', 'Ход', 'Речь', 'Смена', 'Бизнес', 'Качество', 'Республика', 'Сердце', 'Администрация', 'Поезд', 'Работник', 'Ресурс', 'Часть', 'Изучение', 'Бок', 'Понимание', 'Животное', 'Утро', 'Правда', 'Личность', 'Звонок', 'Урок', 'Командир', 'Американец', 'Заседание', 'Образ'];
 
-        const list = document.querySelector('.list')
-        const input = document.querySelector('.search__input')
+    const list = document.querySelector('.list');
+    const input = document.querySelector('.search__input');
+    const buttonSearch = document.querySelector('.search__btn');
+    const buttonClear = document.querySelector('.search__clear');
+
+    list.addEventListener('click', e => {
+        activeItem = e.target.closest('li');
+        activeItem.classList.toggle('list__element--active');
+    });
+
+    function adElementsToUl(elements) {
+        for (const elem of elements) {
+            const li = document.createElement('li');
+            li.textContent = elem;
 
 
-    </script>
+            list.append(li);
+        }
+    }
+
+    adElementsToUl(words);
+
+    function searching() {
+        console.log('start');
+        const search = input.value;
+        let sortWords = words.filter((word) => word.toLowerCase().includes(search.toLowerCase()));
+        list.innerHTML = '';
+        adElementsToUl(sortWords);
+    }
+
+    buttonSearch.addEventListener('click', searching);
+
+    buttonClear.addEventListener('click', e => {
+        input.value = '';
+        list.innerHTML = '';
+        adElementsToUl(words);
+    });
+
+
+</script>
 </body>
 </html>
