@@ -6,44 +6,72 @@
     <title>Задание 61</title>
     <link rel="stylesheet" href="form.css">
     <style>
-        body{
+        body {
             font-family: sans-serif;
             margin: 0;
         }
+
         *, ::after, ::before {
             box-sizing: border-box;
         }
-        .container{
+
+        .container {
             max-width: 800px;
             width: 100%;
             margin: 0 auto;
             padding: 50px 0;
         }
 
-        .grid{
+        .grid {
             display: flex;
             gap: 20px;
         }
     </style>
 </head>
 <body class="container">
-    <div class="grid">
-        <input class="input js-input" type="text">
-        <select class="input input--select js-select">
-            <option selected disabled value="">Выберите машину</option>
-            <option value="1">Машина 1</option>
-            <option value="2">Машина 2</option>
-        </select>
-    </div>
-    <script>
-        const search = location.search;
-        const params = new URLSearchParams(search);
+<div class="grid">
+    <input class="input js-input" type="text">
+    <select class="input input--select js-select">
+        <option selected disabled value="">Выберите машину</option>
+        <option value="1">Машина 1</option>
+        <option value="2">Машина 2</option>
+    </select>
+</div>
+<script>
+    //const params = new URLSearchParams(location.hash.slice(1));
+    const params = new URLSearchParams(location.search);
 
-        const input = document.querySelector('.js-input')
-        const select = document.querySelector('.js-select')
+    const input = document.querySelector('.js-input');
+    const select = document.querySelector('.js-select');
 
+    input.value = params.get('text') ?? '';
+    select.value = params.get('car_id') ?? '';
 
+    input.addEventListener('change', e => {
+        const inputText = input.value;
+        if (inputText) {
+            params.set('text', inputText);
+        } else {
+            params.delete('text');
+        }
 
-    </script>
+        //location.hash = params.toString();
+        location.search = params.toString();
+    });
+
+    select.addEventListener('change', e => {
+        const selectId = select.value;
+
+        if (selectId) {
+            params.set('car_id', selectId);
+        } else {
+            params.delete('car_id');
+        }
+
+        //location.hash = params.toString();
+        location.search = params.toString();
+    });
+
+</script>
 </body>
 </html>
