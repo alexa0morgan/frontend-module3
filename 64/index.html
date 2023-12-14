@@ -5,99 +5,146 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Задание 64</title>
     <style>
-        body{
+        body {
             font-family: sans-serif;
             margin: 0;
         }
+
         *, ::after, ::before {
             box-sizing: border-box;
         }
-        ul{
+
+        ul {
             margin: 0;
         }
-        .container{
+
+        .container {
             max-width: 800px;
             width: 100%;
             margin: 0 auto;
             padding: 50px 0;
         }
 
-        .grid{
+        .grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 10px;
         }
+
         .js-list li {
             padding: 3px;
             font-size: 18px;
             cursor: pointer;
         }
-        .js-list li:hover{
+
+        .js-list li:hover {
             text-decoration: underline;
         }
-        .message{
+
+        .message {
             list-style: none;
         }
-        .message--hide{
+
+        .message--hide {
             display: none;
         }
 
-        .message__item{
+        .message__item {
             padding: 10px;
             border: 1px solid red;
             font-size: 14px;
         }
-        .message__item + .message__item{
+
+        .message__item + .message__item {
             margin-top: .5rem;
         }
 
-        .loader{
+        .loader {
             display: flex;
             justify-content: center;
         }
-        .loader--hide{
+
+        .loader--hide {
             display: none;
         }
 
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="grid">
+<div class="container">
+    <div class="grid">
 
-            <ul class="js-list"></ul>
+        <ul class="js-list"></ul>
 
-            <div class="messages">
+        <div class="messages">
 
-                <div class="loader loader--hide">
-                    <svg width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#932b2b">
-                        <g fill="none" fill-rule="evenodd">
-                            <g transform="translate(1 1)" stroke-width="2">
-                                <circle stroke-opacity=".5" cx="18" cy="18" r="18"/>
-                                <path d="M36 18c0-9.94-8.06-18-18-18">
-                                    <animateTransform
+            <div class="loader loader--hide">
+                <svg width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#932b2b">
+                    <g fill="none" fill-rule="evenodd">
+                        <g transform="translate(1 1)" stroke-width="2">
+                            <circle stroke-opacity=".5" cx="18" cy="18" r="18"/>
+                            <path d="M36 18c0-9.94-8.06-18-18-18">
+                                <animateTransform
                                         attributeName="transform"
                                         type="rotate"
                                         from="0 18 18"
                                         to="360 18 18"
                                         dur="1s"
                                         repeatCount="indefinite"/>
-                                </path>
-                            </g>
+                            </path>
                         </g>
-                    </svg>
-                </div>
-
-                <ul class="message js-message"></ul>
+                    </g>
+                </svg>
             </div>
+
+            <ul class="message js-message"></ul>
         </div>
     </div>
-    <script>
-        const list = document.querySelector('.js-list')
-        const message = document.querySelector('.js-message')
-        const loader = document.querySelector('.loader')
+</div>
+<script>
+    const list = document.querySelector('.js-list');
+    const message = document.querySelector('.js-message');
+    const loader = document.querySelector('.loader');
 
 
-    </script>
+    fetch('https://jsonplaceholder.typicode.com/posts/')
+        .then(value => value.json())
+        .then(data => {
+            for (const item of data) {
+                const li = document.createElement('li');
+                li.dataset.id = item.id;
+                li.textContent = item.title;
+                list.append(li);
+            }
+        });
+
+    function fetchComments(id) {
+        fetch(`https://jsonplaceholder.typicode.com/posts/${id}/comments`)
+            .then(value => value.json())
+            .then(data => {
+                message.innerHTML = '';
+                for (const item of data) {
+                    const li = document.createElement('li');
+                    li.textContent = item.body;
+                    li.className = 'message__item';
+                    message.append(li);
+                }
+                message.classList.remove('message--hide');
+            })
+            .finally(() => loader.classList.add('loader--hide'));
+    }
+
+
+    list.addEventListener('click', e => {
+        if (e.target.tagName !== 'LI') return;
+
+        loader.classList.remove('loader--hide');
+        message.classList.add('message--hide');
+
+        fetchComments(e.target.dataset.id);
+    });
+
+
+</script>
 </body>
 </html>
