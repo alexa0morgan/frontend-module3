@@ -5,82 +5,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Задание 65</title>
     <style>
-        body{
+        body {
             font-family: sans-serif;
             margin: 0;
         }
+
         *, ::after, ::before {
             box-sizing: border-box;
         }
-        p,h2{
+
+        p, h2 {
             margin: 0;
         }
-        .container{
+
+        .container {
             max-width: 1100px;
             width: 100%;
             margin: 0 auto;
             padding: 50px 0;
         }
-        .products{
+
+        .products {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 16px;
         }
-        .product{
+
+        .product {
             display: flex;
             flex-direction: column;
             border: 1px solid black;
         }
 
-        .product__body{
+        .product__body {
             padding: 10px;
             border-top: 1px solid black;
+            /*изменено*/
+            display: flex;
+            flex-direction: column;
+            flex: 1;
         }
+
         .product__price {
             font-size: 18px;
             color: #009688;
             font-weight: bold;
         }
 
-        .product__img{
+        .product__img {
             width: 100%;
             height: 150px;
             object-fit: cover;
             background-color: #9E9E9E;
         }
 
-        .product__rating{
+        .product__rating {
             margin-top: 1rem;
         }
-        .product__brand{
+
+        .product__brand {
             background: #f2f2f2;
         }
-        .product__title{
+
+        .product__title {
             margin-bottom: 1rem;
         }
-        .product__descr{
+
+        .product__descr {
             margin-bottom: 1rem;
         }
-        .product__category{
+
+        .product__category {
             background: #f2f2f2;
         }
-        .filters{
+
+        /*изменено*/
+        .product__spacer {
+            flex: 1;
+        }
+
+        .filters {
             display: flex;
             gap: 20px;
         }
-        .page__filters{
+
+        .page__filters {
             margin-bottom: 100px;
         }
 
-        .rating{
+        .rating {
             display: flex;
             gap: 10px;
             align-items: center;
         }
-        .rating__ico{
+
+        .rating__ico {
             color: #FFC107;
         }
-        .rating__value{
+
+        .rating__value {
             margin: 0;
             font-size: 15px;
             color: #FF9800;
@@ -90,40 +113,107 @@
     </style>
 </head>
 <body class="page">
-    <div class="container">
+<div class="container">
 
-        <div class="page__filters filters">
-            <select class="js-select">
-                <option selected disabled value="">Выберите категорию</option>
-            </select>
-            <input type="text" placeholder="Поиск" class="js-search">
-        </div>
+    <div class="page__filters filters">
+        <select class="js-select">
+            <option selected disabled value="">Выберите категорию</option>
+        </select>
+        <input type="text" placeholder="Поиск" class="js-search">
+    </div>
 
 
-        <div class="products js-products">
-            <!-- <div class="product">
-                <img class="product__img" src="https://i.dummyjson.com/data/products/1/thumbnail.jpg" alt="">
-                <div class="product__body">
-                    <p class="product__price">$ 1111 549</p>
-                    <h2 class="product__title">iPhone 9 - ПРИМЕР</h2>
-                    <p class="product__descr">An apple mobile which is nothing like apple</p>
-                    <p class="product__brand">Brand: <span>Apple</span></p>
-                    <p class="product__category">Category: <span>smartphones</span></p>
-                    <div class="rating product__rating">
-                        <svg class="rating__ico" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                        <p class="rating__value">4.69</p>
+    <div class="products js-products">
+        <!-- <div class="product">
+            <img class="product__img" src="https://i.dummyjson.com/data/products/1/thumbnail.jpg" alt="">
+            <div class="product__body">
+                <p class="product__price">$ 1111 549</p>
+                <h2 class="product__title">iPhone 9 - ПРИМЕР</h2>
+                <p class="product__descr">An apple mobile which is nothing like apple</p>
+                <p class="product__brand">Brand: <span>Apple</span></p>
+                <p class="product__category">Category: <span>smartphones</span></p>
+
+                <div class="rating product__rating">
+                    <svg class="rating__ico" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <p class="rating__value">4.69</p>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</div>
+<script>
+
+    const products = document.querySelector('.js-products');
+    const select = document.querySelector('.js-select');
+    const search = document.querySelector('.js-search');
+
+    function getProducts() {
+        return fetch('https://dummyjson.com/products/').then(v => v.json());
+    }
+
+    function getCategories() {
+        return fetch('https://dummyjson.com/products/categories').then(v => v.json());
+    }
+
+    function fetchSearchByProducts(word) {
+        return fetch(`https://dummyjson.com/products/search?q=${word}`).then(v => v.json());
+    }
+
+    function fetchProductsByCategory(category) {
+        return fetch(`https://dummyjson.com/products/category/${category}`).then(v => v.json());
+    }
+
+    const formatter = Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD'
+    });
+
+    function renderProducts(data) {
+        products.innerHTML = '';
+        for (const product of data) {
+            products.insertAdjacentHTML('beforeend', `
+                <div class="product">
+                    <img class="product__img" src="${product.thumbnail}" alt="">
+                    <div class="product__body">
+                        <p class="product__price">${formatter.format(product.price)}</p>
+                        <h2 class="product__title">${product.title}</h2>
+                        <p class="product__descr">${product.description}</p>
+                        <p class="product__brand">Brand: <span>${product.brand}</span></p>
+                        <p class="product__category">Category: <span>${product.category}</span></p>
+                        <!--изменено-->
+                        <div class="product__spacer"></div>
+                        <!--изменено-->
+                        <div class="rating product__rating">
+                            <svg class="rating__ico" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            <p class="rating__value">${product.rating}</p>
+                        </div>
                     </div>
                 </div>
-            </div> -->
-        </div>
-    </div>
-    <script>
+            `);
+        }
+    }
 
-    const products = document.querySelector('.js-products')
-    const select = document.querySelector('.js-select')
-    const search = document.querySelector('.js-search')
+    getProducts().then(data => renderProducts(data.products));
 
+    getCategories().then(data => {
+        for (const category of data) {
+            const htmlOptionElement = document.createElement('option');
+            htmlOptionElement.value = category;
+            htmlOptionElement.textContent = category;
+            select.append(htmlOptionElement);
+        }
+    });
 
-    </script>
+    select.addEventListener('change', e => {
+        fetchProductsByCategory(select.value)
+            .then(data => renderProducts(data.products));
+    });
+
+    search.addEventListener('change', e => {
+        fetchSearchByProducts(search.value)
+            .then(data => renderProducts(data.products));
+    });
+
+</script>
 </body>
 </html>
