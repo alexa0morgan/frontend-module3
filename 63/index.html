@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Задание 63</title>
     <style>
-        body{
+        body {
             font-family: sans-serif;
             margin: 0;
         }
+
         *, ::after, ::before {
             box-sizing: border-box;
         }
-        .container{
+
+        .container {
             max-width: 800px;
             width: 100%;
             margin: 0 auto;
@@ -22,13 +24,23 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <ul class="js-list"></ul>
-    </div>
-    <script>
-        const list = document.querySelector('.js-list')
+<div class="container">
+    <ul class="js-list"></ul>
+</div>
+<script>
+    const list = document.querySelector('.js-list');
 
+    fetch('https://jsonplaceholder.typicode.com/posts/')
+        .then(value => value.json())
+        .then(data => {
+            for (const item of data) {
+                const li = document.createElement('li');
+                li.dataset.id = item.id;
+                li.textContent = item.title;
+                list.append(li);
+            }
+        });
 
-    </script>
+</script>
 </body>
 </html>
