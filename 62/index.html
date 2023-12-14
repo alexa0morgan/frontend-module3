@@ -5,20 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Задание 62.1</title>
     <style>
-        body{
+        body {
             font-family: sans-serif;
             margin: 0;
         }
+
         *, ::after, ::before {
             box-sizing: border-box;
         }
-        .container{
+
+        .container {
             max-width: 800px;
             width: 100%;
             margin: 0 auto;
             padding: 50px 0;
         }
-        .grid{
+
+        .grid {
             display: flex;
             gap: 20px;
             align-items: center;
@@ -26,23 +29,32 @@
     </style>
 </head>
 <body>
-    <div class="container">
+<div class="container">
 
-        <div class="grid">
-            <input class="js-input" type="text">
-            <button class="js-button"> Сохранить </button>
-        </div>
-
-        <hr>
-
-        <h1>Ваше имя <span class="js-name"></span></h1>
+    <div class="grid">
+        <input class="js-input" type="text">
+        <button class="js-button"> Сохранить</button>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+    <hr>
 
-    <script>
+    <h1>Ваше имя <span class="js-name"></span></h1>
+</div>
 
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
 
-    </script>
+<script>
+    const button = document.querySelector('.js-button');
+    const input = document.querySelector('.js-input');
+    const span = document.querySelector('.js-name');
+
+    span.textContent = Cookies.get('name') ?? '';
+
+    button.addEventListener('click', e => {
+        Cookies.set('name', input.value, {expires: 3});
+        span.textContent = input.value;
+    });
+
+</script>
 </body>
 </html>
