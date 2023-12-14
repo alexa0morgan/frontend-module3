@@ -3,30 +3,42 @@ img {
     block-size: auto;
 }
 
-body{
+body {
     font-family: 'Zen Dots', cursive;
 }
 
-.banner{
+.banner {
     background-size: cover;
 }
 
-.gallery__inner{
+.gallery__inner {
     margin-top: 50px;
 }
 
-.banner__title{
+.banner__title {
     color: white;
     font-size: 60px;
     padding: 150px 0;
 }
 
-.gallery__title{
+.gallery__title {
     font-size: 48px;
 }
 
-.gallery__item{
+.gallery__item {
     height: 600px;
     width: 100%;
     object-fit: cover;
+}
+
+.banner {
+    background-image: url('images_new/bg.webp');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Zen Dots';
+    font-style: normal;
+    font-weight: 400;
+    src: url('zen-dots-v12-latin-regular.woff2') format('woff2');
 }

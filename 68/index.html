@@ -8,67 +8,269 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+    <link rel="preload" href="zen-dots-v12-latin-regular.woff2">
+    <link rel="preload" href="images_new/bg.webp" as="image">
+    <link rel="preconnect" href="https://images.panda.org">
 
 </head>
 <body>
-    <header class="banner" style="background-image: url('images/bg.jpg');">
-        <div class="banner__inner container">
-            <h1 class="banner__title">Photo Gallery</h1>
-        </div>
-    </header>
+<svg style="display: none">
+    <symbol id="warning-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"/>
+        <line x1="12" y1="8" x2="12" y2="12"/>
+        <line x1="12" y1="16" x2="12.01" y2="16"/>
+    </symbol>
+</svg>
+
+<header class="banner">
+    <div class="banner__inner container">
+        <h1 class="banner__title">Photo Gallery</h1>
+    </div>
+</header>
 
 
-    <section class="gallery container">
-        <div class="gallery__inner">
-            <h2 class="gallery__title">Gallery Grid</h2>
-        </div>
-        <div class="gallery__grid row">
-            <article class="col-1 col-lg-4">
-                <img class="gallery__item" src="images/adrian-dascal-AFppPIyQpH4-unsplash.jpg" alt="">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-octagon"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-            </article>
-             <article class="col-1 col-lg-4">
-                <img class="gallery__item" src="images/marek-piwnicki--9f4ZSP1_3o-unsplash.jpg" alt="">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-octagon"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-            </article>
-             <article class="col-1 col-lg-4">
-                <img class="gallery__item" src="images/thiva-HwTlf2i30X8-unsplash.jpg" alt="">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-octagon"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-            </article>
-             <article class="col-1 col-lg-4">
-                <img class="gallery__item" src="images/pramod-tiwari-XwA54eDOQWs-unsplash.jpg" alt="">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-octagon"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-            </article>
-             <article class="col-1 col-lg-4">
-                <img class="gallery__item" src="images/artem-astashov-JzY3Uj24wKQ-unsplash.jpg" alt="">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-octagon"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-            </article>
-             <article class="col-1 col-lg-4">
-                <img class="gallery__item" src="images/robbin-grimm-lTCIwOu4Pgc-unsplash.jpg" alt="">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-octagon"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-            </article>
-             <article class="col-1 col-lg-4">
-                <img class="gallery__item" src="images/srikanta-h-u-Ju0DX6yhcBE-unsplash.jpg" alt="">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-octagon"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-            </article>
-             <article class="col-1 col-lg-4">
-                <img class="gallery__item" src="images/guille-alvarez-IENX30F7Gw8-unsplash.jpg" alt="">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-octagon"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-            </article>
-             <article class="col-1 col-lg-4">
-                <img class="gallery__item" src="images/matej-rieciciar-bPRxj7wNft8-unsplash.jpg" alt="">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-octagon"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-            </article>
-             <article class="col-1 col-lg-4">
-                <img class="gallery__item" src="images/tony-litvyak-H7RLUfM1sus-unsplash.jpg" alt="">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-octagon"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-            </article>
-        </div>
+<section class="gallery container">
+    <div class="gallery__inner">
+        <h2 class="gallery__title">Gallery Grid</h2>
+    </div>
+    <div class="gallery__grid row">
+        <article class="col-1 col-lg-4">
+            <img class="gallery__item"
+                 sizes="(max-width: 1400px) 100vw, 1400px"
+                 srcset="
+                images_new/adrian-dascal-AFppPIyQpH4-unsplash_og7njb_c_scale,w_200.webp 200w,
+                images_new/adrian-dascal-AFppPIyQpH4-unsplash_og7njb_c_scale,w_391.webp 391w,
+                images_new/adrian-dascal-AFppPIyQpH4-unsplash_og7njb_c_scale,w_480.webp 480w,
+                images_new/adrian-dascal-AFppPIyQpH4-unsplash_og7njb_c_scale,w_581.webp 581w,
+                images_new/adrian-dascal-AFppPIyQpH4-unsplash_og7njb_c_scale,w_672.webp 672w,
+                images_new/adrian-dascal-AFppPIyQpH4-unsplash_og7njb_c_scale,w_752.webp 752w,
+                images_new/adrian-dascal-AFppPIyQpH4-unsplash_og7njb_c_scale,w_823.webp 823w,
+                images_new/adrian-dascal-AFppPIyQpH4-unsplash_og7njb_c_scale,w_906.webp 906w,
+                images_new/adrian-dascal-AFppPIyQpH4-unsplash_og7njb_c_scale,w_930.webp 930w,
+                images_new/adrian-dascal-AFppPIyQpH4-unsplash_og7njb_c_scale,w_955.webp 955w,
+                images_new/adrian-dascal-AFppPIyQpH4-unsplash_og7njb_c_scale,w_1013.webp 1013w,
+                images_new/adrian-dascal-AFppPIyQpH4-unsplash_og7njb_c_scale,w_1086.webp 1086w,
+                images_new/adrian-dascal-AFppPIyQpH4-unsplash_og7njb_c_scale,w_1154.webp 1154w,
+                images_new/adrian-dascal-AFppPIyQpH4-unsplash_og7njb_c_scale,w_1208.webp 1208w,
+                images_new/adrian-dascal-AFppPIyQpH4-unsplash_og7njb_c_scale,w_1266.webp 1266w,
+                images_new/adrian-dascal-AFppPIyQpH4-unsplash_og7njb_c_scale,w_1325.webp 1325w,
+                images_new/adrian-dascal-AFppPIyQpH4-unsplash_og7njb_c_scale,w_1396.webp 1396w,
+                images_new/adrian-dascal-AFppPIyQpH4-unsplash_og7njb_c_scale,w_1400.webp 1400w"
+                 src="images_new/adrian-dascal-AFppPIyQpH4-unsplash_og7njb_c_scale,w_1400.webp"
+                 alt=""
+                 loading="lazy">
+            <svg width="24" height="24">
+                <use xlink:href="#warning-icon"></use>
+            </svg>
+        </article>
+        <article class="col-1 col-lg-4">
+            <img class="gallery__item"
+                 sizes="(max-width: 1400px) 100vw, 1400px"
+                 srcset="
+                images_new/marek-piwnicki--9f4ZSP1_3o-unsplash_dyljga_c_scale,w_200.webp 200w,
+                images_new/marek-piwnicki--9f4ZSP1_3o-unsplash_dyljga_c_scale,w_553.webp 553w,
+                images_new/marek-piwnicki--9f4ZSP1_3o-unsplash_dyljga_c_scale,w_842.webp 842w,
+                images_new/marek-piwnicki--9f4ZSP1_3o-unsplash_dyljga_c_scale,w_924.webp 924w,
+                images_new/marek-piwnicki--9f4ZSP1_3o-unsplash_dyljga_c_scale,w_1055.webp 1055w,
+                images_new/marek-piwnicki--9f4ZSP1_3o-unsplash_dyljga_c_scale,w_1347.webp 1347w,
+                images_new/marek-piwnicki--9f4ZSP1_3o-unsplash_dyljga_c_scale,w_1254.webp 1254w,
+                images_new/marek-piwnicki--9f4ZSP1_3o-unsplash_dyljga_c_scale,w_1400.webp 1400w"
+                 src="images_new/marek-piwnicki--9f4ZSP1_3o-unsplash_dyljga_c_scale,w_1400.webp"
+                 alt=""
+                 loading="lazy">
+            <svg width="24" height="24">
+                <use xlink:href="#warning-icon"></use>
+            </svg>
 
-        <img class="w-100" src="https://images.panda.org/assets/images/pages/welcome/orangutan_1600x1000_279157.jpg" alt="">
-    </section>
+        </article>
+        <article class="col-1 col-lg-4">
+            <img class="gallery__item"
+                 sizes="(max-width: 1400px) 100vw, 1400px"
+                 srcset="
+                images_new/thiva-HwTlf2i30X8-unsplash_fbtoir_c_scale,w_200.webp 200w,
+                images_new/thiva-HwTlf2i30X8-unsplash_fbtoir_c_scale,w_392.webp 392w,
+                images_new/thiva-HwTlf2i30X8-unsplash_fbtoir_c_scale,w_490.webp 490w,
+                images_new/thiva-HwTlf2i30X8-unsplash_fbtoir_c_scale,w_600.webp 600w,
+                images_new/thiva-HwTlf2i30X8-unsplash_fbtoir_c_scale,w_693.webp 693w,
+                images_new/thiva-HwTlf2i30X8-unsplash_fbtoir_c_scale,w_779.webp 779w,
+                images_new/thiva-HwTlf2i30X8-unsplash_fbtoir_c_scale,w_872.webp 872w,
+                images_new/thiva-HwTlf2i30X8-unsplash_fbtoir_c_scale,w_899.webp 899w,
+                images_new/thiva-HwTlf2i30X8-unsplash_fbtoir_c_scale,w_931.webp 931w,
+                images_new/thiva-HwTlf2i30X8-unsplash_fbtoir_c_scale,w_1004.webp 1004w,
+                images_new/thiva-HwTlf2i30X8-unsplash_fbtoir_c_scale,w_1063.webp 1063w,
+                images_new/thiva-HwTlf2i30X8-unsplash_fbtoir_c_scale,w_1119.webp 1119w,
+                images_new/thiva-HwTlf2i30X8-unsplash_fbtoir_c_scale,w_1182.webp 1182w,
+                images_new/thiva-HwTlf2i30X8-unsplash_fbtoir_c_scale,w_1248.webp 1248w,
+                images_new/thiva-HwTlf2i30X8-unsplash_fbtoir_c_scale,w_1308.webp 1308w,
+                images_new/thiva-HwTlf2i30X8-unsplash_fbtoir_c_scale,w_1364.webp 1364w,
+                images_new/thiva-HwTlf2i30X8-unsplash_fbtoir_c_scale,w_1396.webp 1396w,
+                images_new/thiva-HwTlf2i30X8-unsplash_fbtoir_c_scale,w_1400.webp 1400w"
+                 src="images_new/thiva-HwTlf2i30X8-unsplash_fbtoir_c_scale,w_1400.webp"
+                 alt=""
+                 loading="lazy">
+            <svg width="24" height="24">
+                <use xlink:href="#warning-icon"></use>
+            </svg>
+
+        </article>
+        <article class="col-1 col-lg-4">
+            <img class="gallery__item"
+                 sizes="(max-width: 1400px) 100vw, 1400px"
+                 srcset="
+                images_new/pramod-tiwari-XwA54eDOQWs-unsplash_dhx261_c_scale,w_200.webp 200w,
+                images_new/pramod-tiwari-XwA54eDOQWs-unsplash_dhx261_c_scale,w_634.webp 634w,
+                images_new/pramod-tiwari-XwA54eDOQWs-unsplash_dhx261_c_scale,w_848.webp 848w,
+                images_new/pramod-tiwari-XwA54eDOQWs-unsplash_dhx261_c_scale,w_1042.webp 1042w,
+                images_new/pramod-tiwari-XwA54eDOQWs-unsplash_dhx261_c_scale,w_1275.webp 1275w,
+                images_new/pramod-tiwari-XwA54eDOQWs-unsplash_dhx261_c_scale,w_1396.webp 1396w,
+                images_new/pramod-tiwari-XwA54eDOQWs-unsplash_dhx261_c_scale,w_1400.webp 1400w"
+                 src="images_new/pramod-tiwari-XwA54eDOQWs-unsplash_dhx261_c_scale,w_1400.webp"
+                 alt=""
+                 loading="lazy">
+            <svg width="24" height="24">
+                <use xlink:href="#warning-icon"></use>
+            </svg>
+
+        </article>
+        <article class="col-1 col-lg-4">
+            <img class="gallery__item"
+                 sizes="(max-width: 1400px) 100vw, 1400px"
+                 srcset="
+                images_new/artem-astashov-JzY3Uj24wKQ-unsplash_licyes_c_scale,w_200.webp 200w,
+                images_new/artem-astashov-JzY3Uj24wKQ-unsplash_licyes_c_scale,w_367.webp 367w,
+                images_new/artem-astashov-JzY3Uj24wKQ-unsplash_licyes_c_scale,w_493.webp 493w,
+                images_new/artem-astashov-JzY3Uj24wKQ-unsplash_licyes_c_scale,w_590.webp 590w,
+                images_new/artem-astashov-JzY3Uj24wKQ-unsplash_licyes_c_scale,w_678.webp 678w,
+                images_new/artem-astashov-JzY3Uj24wKQ-unsplash_licyes_c_scale,w_760.webp 760w,
+                images_new/artem-astashov-JzY3Uj24wKQ-unsplash_licyes_c_scale,w_838.webp 838w,
+                images_new/artem-astashov-JzY3Uj24wKQ-unsplash_licyes_c_scale,w_868.webp 868w,
+                images_new/artem-astashov-JzY3Uj24wKQ-unsplash_licyes_c_scale,w_900.webp 900w,
+                images_new/artem-astashov-JzY3Uj24wKQ-unsplash_licyes_c_scale,w_962.webp 962w,
+                images_new/artem-astashov-JzY3Uj24wKQ-unsplash_licyes_c_scale,w_1022.webp 1022w,
+                images_new/artem-astashov-JzY3Uj24wKQ-unsplash_licyes_c_scale,w_1089.webp 1089w,
+                images_new/artem-astashov-JzY3Uj24wKQ-unsplash_licyes_c_scale,w_1157.webp 1157w,
+                images_new/artem-astashov-JzY3Uj24wKQ-unsplash_licyes_c_scale,w_1227.webp 1227w,
+                images_new/artem-astashov-JzY3Uj24wKQ-unsplash_licyes_c_scale,w_1258.webp 1258w,
+                images_new/artem-astashov-JzY3Uj24wKQ-unsplash_licyes_c_scale,w_1351.webp 1351w,
+                images_new/artem-astashov-JzY3Uj24wKQ-unsplash_licyes_c_scale,w_1393.webp 1393w,
+                images_new/artem-astashov-JzY3Uj24wKQ-unsplash_licyes_c_scale,w_1400.webp 1400w"
+                 src="images_new/artem-astashov-JzY3Uj24wKQ-unsplash_licyes_c_scale,w_1400.webp"
+                 alt=""
+                 loading="lazy">
+            <svg width="24" height="24">
+                <use xlink:href="#warning-icon"></use>
+            </svg>
+
+        </article>
+        <article class="col-1 col-lg-4">
+            <img class="gallery__item" sizes="(max-width: 1400px) 100vw, 1400px"
+                 srcset="
+                images_new/robbin-grimm-lTCIwOu4Pgc-unsplash_djyijj_c_scale,w_200.webp 200w,
+                images_new/robbin-grimm-lTCIwOu4Pgc-unsplash_djyijj_c_scale,w_808.webp 808w,
+                images_new/robbin-grimm-lTCIwOu4Pgc-unsplash_djyijj_c_scale,w_1181.webp 1181w,
+                images_new/robbin-grimm-lTCIwOu4Pgc-unsplash_djyijj_c_scale,w_1400.webp 1400w"
+                 src="images_new/robbin-grimm-lTCIwOu4Pgc-unsplash_djyijj_c_scale,w_1400.webp" alt="" loading="lazy">
+            <svg width="24" height="24">
+                <use xlink:href="#warning-icon"></use>
+            </svg>
+
+        </article>
+        <article class="col-1 col-lg-4">
+            <img class="gallery__item"
+                 sizes="(max-width: 1400px) 100vw, 1400px"
+                 srcset="images_new/srikanta-h-u-Ju0DX6yhcBE-unsplash_zxztt9_c_scale,w_200.webp 200w,
+                        images_new/srikanta-h-u-Ju0DX6yhcBE-unsplash_zxztt9_c_scale,w_637.webp 637w,
+                        images_new/srikanta-h-u-Ju0DX6yhcBE-unsplash_zxztt9_c_scale,w_883.webp 883w,
+                        images_new/srikanta-h-u-Ju0DX6yhcBE-unsplash_zxztt9_c_scale,w_1051.webp 1051w,
+                        images_new/srikanta-h-u-Ju0DX6yhcBE-unsplash_zxztt9_c_scale,w_1229.webp 1229w,
+                        images_new/srikanta-h-u-Ju0DX6yhcBE-unsplash_zxztt9_c_scale,w_1381.webp 1381w,
+                        images_new/srikanta-h-u-Ju0DX6yhcBE-unsplash_zxztt9_c_scale,w_1400.webp 1400w"
+                 src="images_new/srikanta-h-u-Ju0DX6yhcBE-unsplash_zxztt9_c_scale,w_1400.webp"
+                 alt="" loading="lazy">
+            <svg width="24" height="24">
+                <use xlink:href="#warning-icon"></use>
+            </svg>
+
+        </article>
+        <article class="col-1 col-lg-4">
+            <img class="gallery__item"
+                 sizes="(max-width: 1400px) 100vw, 1400px"
+                 srcset="
+                images_new/guille-alvarez-IENX30F7Gw8-unsplash_ddauzu_c_scale,w_200.webp 200w,
+                images_new/guille-alvarez-IENX30F7Gw8-unsplash_ddauzu_c_scale,w_460.webp 460w,
+                images_new/guille-alvarez-IENX30F7Gw8-unsplash_ddauzu_c_scale,w_628.webp 628w,
+                images_new/guille-alvarez-IENX30F7Gw8-unsplash_ddauzu_c_scale,w_717.webp 717w,
+                images_new/guille-alvarez-IENX30F7Gw8-unsplash_ddauzu_c_scale,w_855.webp 855w,
+                images_new/guille-alvarez-IENX30F7Gw8-unsplash_ddauzu_c_scale,w_960.webp 960w,
+                images_new/guille-alvarez-IENX30F7Gw8-unsplash_ddauzu_c_scale,w_1069.webp 1069w,
+                images_new/guille-alvarez-IENX30F7Gw8-unsplash_ddauzu_c_scale,w_1171.webp 1171w,
+                images_new/guille-alvarez-IENX30F7Gw8-unsplash_ddauzu_c_scale,w_1272.webp 1272w,
+                images_new/guille-alvarez-IENX30F7Gw8-unsplash_ddauzu_c_scale,w_1285.webp 1285w,
+                images_new/guille-alvarez-IENX30F7Gw8-unsplash_ddauzu_c_scale,w_1310.webp 1310w,
+                images_new/guille-alvarez-IENX30F7Gw8-unsplash_ddauzu_c_scale,w_1382.webp 1382w,
+                images_new/guille-alvarez-IENX30F7Gw8-unsplash_ddauzu_c_scale,w_1397.webp 1397w,
+                images_new/guille-alvarez-IENX30F7Gw8-unsplash_ddauzu_c_scale,w_1400.webp 1400w"
+                 src="images_new/guille-alvarez-IENX30F7Gw8-unsplash_ddauzu_c_scale,w_1400.webp"
+                 alt=""
+                 loading="lazy">
+            <svg width="24" height="24">
+                <use xlink:href="#warning-icon"></use>
+            </svg>
+
+        </article>
+        <article class="col-1 col-lg-4">
+            <img class="gallery__item"
+                 sizes="(max-width: 1400px) 100vw, 1400px"
+                 srcset="
+                images_new/matej-rieciciar-bPRxj7wNft8-unsplash_tlefmz_c_scale,w_200.webp 200w,
+                images_new/matej-rieciciar-bPRxj7wNft8-unsplash_tlefmz_c_scale,w_423.webp 423w,
+                images_new/matej-rieciciar-bPRxj7wNft8-unsplash_tlefmz_c_scale,w_774.webp 774w,
+                images_new/matej-rieciciar-bPRxj7wNft8-unsplash_tlefmz_c_scale,w_776.webp 776w,
+                images_new/matej-rieciciar-bPRxj7wNft8-unsplash_tlefmz_c_scale,w_881.webp 881w,
+                images_new/matej-rieciciar-bPRxj7wNft8-unsplash_tlefmz_c_scale,w_969.webp 969w,
+                images_new/matej-rieciciar-bPRxj7wNft8-unsplash_tlefmz_c_scale,w_1057.webp 1057w,
+                images_new/matej-rieciciar-bPRxj7wNft8-unsplash_tlefmz_c_scale,w_1134.webp 1134w,
+                images_new/matej-rieciciar-bPRxj7wNft8-unsplash_tlefmz_c_scale,w_1231.webp 1231w,
+                images_new/matej-rieciciar-bPRxj7wNft8-unsplash_tlefmz_c_scale,w_1316.webp 1316w,
+                images_new/matej-rieciciar-bPRxj7wNft8-unsplash_tlefmz_c_scale,w_1395.webp 1395w,
+                images_new/matej-rieciciar-bPRxj7wNft8-unsplash_tlefmz_c_scale,w_1399.webp 1399w,
+                images_new/matej-rieciciar-bPRxj7wNft8-unsplash_tlefmz_c_scale,w_1400.webp 1400w"
+                 src="images_new/matej-rieciciar-bPRxj7wNft8-unsplash_tlefmz_c_scale,w_1400.webp"
+                 alt=""
+                 loading="lazy">
+            <svg width="24" height="24">
+                <use xlink:href="#warning-icon"></use>
+            </svg>
+
+        </article>
+        <article class="col-1 col-lg-4">
+            <img class="gallery__item"
+                 sizes="(max-width: 1400px) 100vw, 1400px"
+                 srcset="
+                images_new/tony-litvyak-H7RLUfM1sus-unsplash_rbf4aj_c_scale,w_200.webp 200w,
+                images_new/tony-litvyak-H7RLUfM1sus-unsplash_rbf4aj_c_scale,w_388.webp 388w,
+                images_new/tony-litvyak-H7RLUfM1sus-unsplash_rbf4aj_c_scale,w_495.webp 495w,
+                images_new/tony-litvyak-H7RLUfM1sus-unsplash_rbf4aj_c_scale,w_622.webp 622w,
+                images_new/tony-litvyak-H7RLUfM1sus-unsplash_rbf4aj_c_scale,w_763.webp 763w,
+                images_new/tony-litvyak-H7RLUfM1sus-unsplash_rbf4aj_c_scale,w_884.webp 884w,
+                images_new/tony-litvyak-H7RLUfM1sus-unsplash_rbf4aj_c_scale,w_1036.webp 1036w,
+                images_new/tony-litvyak-H7RLUfM1sus-unsplash_rbf4aj_c_scale,w_1171.webp 1171w,
+                images_new/tony-litvyak-H7RLUfM1sus-unsplash_rbf4aj_c_scale,w_1289.webp 1289w,
+                images_new/tony-litvyak-H7RLUfM1sus-unsplash_rbf4aj_c_scale,w_1398.webp 1398w,
+                images_new/tony-litvyak-H7RLUfM1sus-unsplash_rbf4aj_c_scale,w_1400.webp 1400w"
+                 src="images_new/tony-litvyak-H7RLUfM1sus-unsplash_rbf4aj_c_scale,w_1400.webp"
+                 loading="lazy">
+            <svg width="24" height="24">
+                <use xlink:href="#warning-icon"></use>
+            </svg>
+
+        </article>
+    </div>
+
+    <img class="w-100" src="https://images.panda.org/assets/images/pages/welcome/orangutan_1600x1000_279157.jpg" alt=""
+         loading="lazy">
+</section>
 
 
 </body>
